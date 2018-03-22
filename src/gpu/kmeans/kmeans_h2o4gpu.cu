@@ -2,8 +2,6 @@
  * Copyright 2017 H2O.ai, Inc.
  * License   Apache License Version 2.0 (see LICENSE for details)
  */
-#include "matrix/matrix.h"
-#include "matrix/matrix_dense.h"
 #include <thrust/copy.h>
 #include <thrust/reduce.h>
 #include <thrust/device_vector.h>
@@ -475,9 +473,7 @@ thrust::host_vector<T> kmeans_parallel(int verbose, int seed, const char ord,
           pot_cent_filter_counter + rows_per_gpu, [=]__device__(int idx){
             thrust::default_random_engine rng(seed);
             thrust::uniform_real_distribution<> dist(0.0, 1.0);
-            int device;
-            cudaGetDevice(&device);
-            rng.discard(idx + device * rows_per_gpu);
+            rng.discard(idx + i * rows_per_gpu);
             T prob_threshold = (T) dist(rng);
 
             T prob_x = (( 2.0 * k * min_costs_ptr[idx]) / total_min_cost);
@@ -495,14 +491,14 @@ thrust::host_vector<T> kmeans_parallel(int verbose, int seed, const char ord,
         thrust::device_vector<T> d_new_potential_centroids(pot_cent_num * cols);
 
         auto range = thrust::make_counting_iterator(0);
+        int device;
+        CUDACHECK(cudaGetDevice(&device));
         thrust::copy_if(
             (*data[i]).begin(), (*data[i]).end(), range,
             d_new_potential_centroids.begin(), [=] __device__(int idx){
               int row = idx / cols;
               thrust::default_random_engine rng(seed);
               thrust::uniform_real_distribution<> dist(0.0, 1.0);
-              int device;
-              cudaGetDevice(&device);
               rng.discard(row + device * rows_per_gpu);
               T prob_threshold = (T) dist(rng);
 
