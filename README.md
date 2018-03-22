@@ -9,7 +9,7 @@ Daal library added for CPU, currently supported only x86_64 architecture.
 
 ## Requirements
 
-* PC with Ubuntu 16.04+ w/ GCC4.9+ and numpy 1.14.x
+* PC with Ubuntu 16.04+ w/ numpy 1.14.x
 
 * Install CUDA with bundled display drivers (
   [CUDA 8](https://developer.nvidia.com/cuda-downloads)
@@ -57,7 +57,7 @@ Download the Python wheel file (For Python 3.6 on linux_x86_64):
     * [CUDA8 nonccl](https://s3.amazonaws.com/h2o-release/h2o4gpu/releases/stable/ai/h2o/h2o4gpu/0.1-nonccl-cuda8/h2o4gpu-0.1.0-py36-none-any.whl)
     * [CUDA9 nccl](https://s3.amazonaws.com/h2o-release/h2o4gpu/releases/stable/ai/h2o/h2o4gpu/0.1-nccl-cuda9/h2o4gpu-0.1.0-py36-none-any.whl)
     * [CUDA9 nonccl](https://s3.amazonaws.com/h2o-release/h2o4gpu/releases/stable/ai/h2o/h2o4gpu/0.1-nonccl-cuda9/h2o4gpu-0.1.0-py36-none-any.whl)
-  * Bleeding edge (changes with every successful master branch build):
+  * Bleeding edge:
     * [CUDA8 nccl](https://s3.amazonaws.com/h2o-release/h2o4gpu/releases/bleeding-edge/ai/h2o/h2o4gpu/0.2-nccl-cuda8/h2o4gpu-0.2.0-cp36-cp36m-linux_x86_64.whl)
     * [CUDA8 nonccl](https://s3.amazonaws.com/h2o-release/h2o4gpu/releases/bleeding-edge/ai/h2o/h2o4gpu/0.2-nonccl-cuda8/h2o4gpu-0.2.0-cp36-cp36m-linux_x86_64.whl)
     * [CUDA9 nccl](https://s3.amazonaws.com/h2o-release/h2o4gpu/releases/bleeding-edge/ai/h2o/h2o4gpu/0.2-nccl-cuda9/h2o4gpu-0.2.0-cp36-cp36m-linux_x86_64.whl)
@@ -150,7 +150,7 @@ Requirements:
 
 Download the Docker file (for linux_x86_64):
 
-  * Bleeding edge (changes with every successful master branch build):
+  * Bleeding edge:
     * [CUDA8 nccl](https://s3.amazonaws.com/h2o-release/h2o4gpu/releases/bleeding-edge/ai/h2o/h2o4gpu/0.2-nccl-cuda8/h2o4gpu-0.2.0-nccl-cuda8-runtime.tar.bz2)
     * [CUDA8 nonccl](https://s3.amazonaws.com/h2o-release/h2o4gpu/releases/bleeding-edge/ai/h2o/h2o4gpu/0.2-nonccl-cuda8/h2o4gpu-nonccl-cuda8-0.2.0-runtime.tar.bz2)
     * [CUDA9 nccl](https://s3.amazonaws.com/h2o-release/h2o4gpu/releases/bleeding-edge/ai/h2o/h2o4gpu/0.2-nccl-cuda9/h2o4gpu-0.2.0-nccl-cuda9-runtime.tar.bz2)
