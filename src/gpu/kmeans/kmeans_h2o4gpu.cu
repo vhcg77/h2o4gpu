@@ -803,6 +803,7 @@ int kmeans_fit(int verbose, int seed, int gpu_idtry, int n_gputry,
   // copy assigned labels
   int offset = 0;
   for (int q = 0; q < n_gpu; q++) {
+    // TODO memcopy
     h_labels->insert(h_labels->begin() + offset, labels[q]->begin(), labels[q]->end());
     offset += labels[q]->size();
   }
